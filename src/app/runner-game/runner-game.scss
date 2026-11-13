@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+}
+
+.game-canvas {
+  --game-ink: #535353;
+  --game-faint: #d4d4d4;
+  --game-bg: #ffffff;
+
+  display: block;
+  width: 100%;
+  aspect-ratio: 800 / 200;
+  touch-action: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  .game-canvas {
+    --game-ink: #d0d0d0;
+    --game-faint: #4a4a4a;
+    --game-bg: #202124;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+
+  button {
+    padding: 6px 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f5f5f5;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .hint {
+    color: #777;
+    font-size: 0.9rem;
+  }
+}

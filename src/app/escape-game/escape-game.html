@@ -1,0 +1,15 @@
+<canvas
+  #canvas
+  class="game-canvas"
+  aria-label="Baby Escape. Press Space or tap to jump over toys, Down arrow to duck under laundry. Don't let mom catch the baby."
+  (pointerdown)="onPointerDown($event)"
+  (pointerup)="onPointerUp()"
+  (pointerleave)="onPointerUp()"
+></canvas>
+
+<div class="controls">
+  <button type="button" (click)="toggleSound()">
+    {{ soundOn() ? '🔊 Sound on' : '🔇 Sound off' }}
+  </button>
+  <span class="hint">Space / ↑ to jump · ↓ to duck · each bump lets mom catch up</span>
+</div>

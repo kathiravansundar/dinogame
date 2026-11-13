@@ -1,0 +1,16 @@
+<canvas
+  #canvas
+  class="game-canvas"
+  aria-label="Flight game. Use the arrow keys, or drag on the screen, to fly around birds and airliners."
+  (pointerdown)="onPointerDown($event)"
+  (pointermove)="onPointerMove($event)"
+  (pointerup)="onPointerUp()"
+  (pointercancel)="onPointerUp()"
+></canvas>
+
+<div class="controls">
+  <button type="button" (click)="toggleSound()">
+    {{ soundOn() ? '🔊 Sound on' : '🔇 Sound off' }}
+  </button>
+  <span class="hint">Arrows / WASD to fly · drag on touch</span>
+</div>

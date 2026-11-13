@@ -1,0 +1,50 @@
+<main>
+  @if (!online() || playAnyway()) {
+    @if (!online()) {
+      <h1>No internet</h1>
+      <p class="sub">Try checking your connection. In the meantime, pick a game.</p>
+    } @else {
+      <h1>You're back online</h1>
+      <p class="sub">Keep playing, or carry on browsing.</p>
+    }
+
+    <nav class="game-menu" aria-label="Choose a game">
+      @for (game of games; track game.id) {
+        <button
+          #btn
+          type="button"
+          [class.active]="selected() === game.id"
+          [attr.aria-pressed]="selected() === game.id"
+          (click)="select(game.id, btn)"
+        >
+          {{ game.label }}
+        </button>
+      }
+    </nav>
+
+    @switch (selected()) {
+      @case ('runner') {
+        <app-runner-game />
+      }
+      @case ('escape') {
+        <app-escape-game />
+      }
+      @case ('car') {
+        <app-car-game />
+      }
+      @case ('flight') {
+        <app-flight-game />
+      }
+      @case ('slice') {
+        <app-slice-game />
+      }
+      @case ('space') {
+        <app-space-game />
+      }
+    }
+  } @else {
+    <h1>You're online</h1>
+    <p class="sub">The games will appear automatically if your connection drops.</p>
+    <button type="button" class="play" (click)="playAnyway.set(true)">Play anyway</button>
+  }
+</main>

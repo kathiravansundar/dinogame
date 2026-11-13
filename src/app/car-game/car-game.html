@@ -1,0 +1,13 @@
+<canvas
+  #canvas
+  class="game-canvas"
+  aria-label="Car game. Use Left and Right arrows, or tap the left or right side, to change lanes."
+  (pointerdown)="onPointerDown($event)"
+></canvas>
+
+<div class="controls">
+  <button type="button" (click)="toggleSound()">
+    {{ soundOn() ? '🔊 Sound on' : '🔇 Sound off' }}
+  </button>
+  <span class="hint">← → / A D to steer · tap left or right side</span>
+</div>

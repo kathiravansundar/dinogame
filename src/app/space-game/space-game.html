@@ -1,0 +1,16 @@
+<canvas
+  #canvas
+  class="game-canvas"
+  aria-label="Space Defender. Fly with the arrow keys or by dragging, press Space to fire at UFOs, and dodge the rocks."
+  (pointerdown)="onPointerDown($event)"
+  (pointermove)="onPointerMove($event)"
+  (pointerup)="onPointerUp()"
+  (pointercancel)="onPointerUp()"
+></canvas>
+
+<div class="controls">
+  <button type="button" (click)="toggleSound()">
+    {{ soundOn() ? '🔊 Sound on' : '🔇 Sound off' }}
+  </button>
+  <span class="hint">Arrows / WASD to fly · hold Space to fire · touch: drag (auto-fire)</span>
+</div>
